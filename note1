@@ -1,1 +1,29 @@
 javascript note
+1.object:javascript中可用new Object()创建一个object或者给定义的变量赋值 {}使之成为object.
+  object中键值对以***:***的形式定义声明，以','隔开
+  访问object中的属性时，可以使用object.prop的形式或者object['prop']形式
+  一般使用object.prop的形式，而当属性名不为有效的变量时，则采用object['prop']的形式
+  当访问一个不存在的属性时，会返回undefined
+  object可以自动的增加属性和删除属性，删除属性可以使用delete 如：delete object.age;
+  检测object中是否拥有某一属性时，可以使用 in 操作符,如: 'age' in object //true or false
+  注意的一点是，当使用in 判断一个属性的存在，该属性不一定是object的，可能是object继承得到的
+  要判断一个属性是否时object自身拥有的，而不是继承的，可以使用hasOwnProperty()方法 如:object.hasOwnProperty('age')
+2.判断语句：
+  当if()的判断语句结果不是直接的TRUE或者FALSE时，js会把null、undefined、0、NaN和空字符串''当成false，其他的值当成true
+3.es6中的Map
+  Map是一组键值对的结构，如：
+  var test=new Map([['adren',12],['kairo',18],['jaon',20]]);
+  test.get('kaito');//结果为18
+  or: var test=new Map();
+      test.set('admin',12313);//增加新的键值对
+      test.has('admin');//查看是否存在admin这个键
+      test.get('admin');//12313
+      test.delete('admin');//删除admin
+  由于一个key只能对应一个value，所以多次对同一个key传递不同的value，只会保留下来最新的一个value
+4.es6中的Set
+  Set是一组key的集合，但不存储value。同样的key不会重复，重复的元素会被自动过滤
+  如: var test=new Set([1,2,3,3,'3']);//实际上只有Set{1,2,3,'3'}
+      test.add(4);//Set{1,2,3,'3',4}
+      test.add(4);//Set{1,2,3,'3',4}
+      test.delete('3');//Set{1,2,3,4}
+  
