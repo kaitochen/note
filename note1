@@ -26,4 +26,5 @@ javascript note
       test.add(4);//Set{1,2,3,'3',4}
       test.add(4);//Set{1,2,3,'3',4}
       test.delete('3');//Set{1,2,3,4}
-  
+5.Array中的map()和reduce()
+  http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/001435119854495d29b9b3d7028477a96ed74db95032675000
