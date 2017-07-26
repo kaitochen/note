@@ -1,0 +1,73 @@
+javaWeb 学习
+	|--tomcat跟http协议
+	|--servlet
+		|--httpservletresponse
+			|--outputstream
+			|--printwriter
+		|--httpservletrequest
+	|--cookies
+	|--session&&session防止表单重复提交（不是很懂）
+	|--jsp
+		|--jsp表达式 <%=  %>
+		|--jsp脚本片段 <% %>
+		|--jsp声明 <%! %>(定义静态代码块，变量跟方法)
+		|--jsp注解
+			|-- html风格 <!--something--> （浏览器中查看源码可见）
+			|-- java风格 // or /*.....*/  （查看源码不可见）
+			|-- jsp风格 <%--something--%> （查看源码不可见）
+		|--jsp指令 <%@....%>
+			|--page <%@ page 属性="值"... %>
+			|--include <%@ include file="relativeURL" %>
+		|--jsp 内置对象
+			|-- pageContext
+			|-- request
+			|-- response
+			|-- session
+			|-- application
+			|--	config
+			|-- out
+			|-- page
+			|-- exception 
+		|--jsp 属性范围
+			|-- pageContext (当前上下文有效，跳转后无效)
+			|-- request (服务器跳转有效，跳转但url地址不变)
+			|-- session (针对用户，任何跳转都有效)
+			|-- application (所有用户有效)
+		|--jsp标签 (jsp anction)
+			|-- <jsp:include> 引入资源
+			|-- <jsp:forward> 请求转发另一个资源
+			|-- <jsp:param> 引入或者请求转发资源时，向该资源传递参数
+		|--jsp自定义标签
+			|--jsp传统标签(tag接口)开发
+				|--doStartTag()
+				|--doEndTag()
+			|--jsp简单标签(simpleTag)
+	|--javabean: 遵循特定写法的java类
+		|--jsp使用javabean:使用标签
+			|--<jsp:useBean>
+			|--<jsp:setProperty>
+			|--<jsp:getProperty>
+	|--开发模式
+		|--jsp+javabean
+		|--servlet+jsp+javabean
+	|--JSTL标签库
+		|--表达式控制标签
+			|--out
+			|--set
+			|--remove
+			|--catch
+		|--流程控制标签
+			|--if
+			|--choose、when、otherwise
+		|--循环标签
+			|--forEach(遍历集合)
+			|--forTokens(遍历字符串)
+		|--URL操作标签
+			|--import
+			|--url
+			|--redirect
+			|--params
+	|--EL表达式
+	|--EL函数库
+	|--JDBC
+	|--SQL补充学习
