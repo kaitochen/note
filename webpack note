@@ -4,6 +4,6 @@ webpack基于node的环境，在使用webpack之前需要安装node,新版的nod
 webpack的本地导入之前需要创建package.json的文件，可以通过 npm init 自动创建
 随后在进行本地导入 npm install webpack --save-dev 导入成功后就可以正式使用webpack
 然后在项目根目录下创建 webpack.config.js 在该文件中对webpack进行配置
-根据需求通过npm 导入所需要的包，插件等 
+根据需求通过npm 导入所需要的包，插件等 如 css的loader或者es6 的编译包还有各种插件
 可以根据webpack的配置对项目进行打包，调试和本地服务器运行
 在使用npm导入包的时候，可以采用淘宝镜像的cnpm，npm由于是国外的原因会不稳定，所以采用国内镜像可以保证速度和使用,或者采用其他的npm包来实现
