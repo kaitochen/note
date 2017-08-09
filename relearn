@@ -1,0 +1,5 @@
+HTML:
+  head 需要meta声明，例如<meta charset='utf-8'> 
+  元素：h1-h6,p,a,img,table,th,tr,td,ul,ol,li,div,span,form,input,textarea,label,iframe
+  h5可以在css中设置h5的新元素的display：block
+  h5新元素：article,aside,section,canvas,video,audio
