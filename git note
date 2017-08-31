@@ -1,0 +1,10 @@
+安装git 安装完成后会有git bash;git GUI;git CMD;目前只用了前两个，git bash为命令行，git GUI为图形界面
+git 操作
+  先进入你想要存放本地仓库的文件夹中
+  克隆远程仓库到本地，git clone +git上面项目的地址 （*.git）
+  需要设置用户名跟邮箱： git config --global uer.name "your name";git config --global user.email "your email"
+  在本地仓库上更改文件，使用git GUI 进行stage changed，commit 和push
+  如果需要远程仓库需要创建分支，现在本地创建分支： git checkout -b branchName;
+  切换到分支上： git checkout branchName
+  正常修改项目
+  在git GUI上切换到分支上，可以看到修改的文件和内容，先stage changed，再commit，最后再push，这样远程仓库就创建了跟本地一样名字的分支
