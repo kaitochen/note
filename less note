@@ -1,1 +1,166 @@
 安装less 可以通过npm进行安装，也可以在文件中引入less.js和less.css 推荐通过npm进行安装，下载并安装node就可以使用npm
+less 学习日记
+	part1-语言特性：
+  概览：
+		变量：变量名称需要@前缀 	
+				@blue: #5b83ad
+				@light-blue: @blue + #111;
+				.test{
+					color: @light-blue;
+				}
+        变量实际上是“常量”，因为它们只被定义声明一次
+		mixin(混合/混入): mixin是将一个定义的样式规则包含进另外一个规则中
+				.background{
+					background-image: url('test.png');
+					background-repeat: no-repeat;
+					background-size: 80% 80%;
+				}
+				如果我们需要在其他的样式规则中使用到上述的样式的话，可以直接在规则中引入。
+				#banner .img{
+					width: 50px;
+					height: 50px;
+					.background;
+				}
+		嵌套规则: 
+				#header{
+					color: red;
+					.nav{
+						display: inline-block;
+					}
+					.logo{
+						width: 30px;
+						height: 30px;
+					}
+				}
+				等同于=> 
+				#header{
+					color: red;
+				}
+				#header .nav{
+					display: inline-block;
+				}
+				#header .logo{
+					width: 30px;
+					height: 30px;
+				}
+				在嵌套规则中可以使用伪选择器(&代表当前选择器的父选择器)
+				.list{
+					color: blue;
+					&:after{
+						content: " ";
+						display: block;
+						height: 10px;
+						width: 10px;
+						background-color: #000;
+					}
+				}
+        嵌套准则和冒泡
+        像media和keyframe的指令可以嵌套在和选择器一样的地方。冒泡就是将指令放置在顶部，并且保持同一个规则集中的其他元素的相对顺序不变。
+        条件指令，像@media,@supports,@document可以将选择器复制进它们的规则里面
+        .screen-color{
+          @meida screen{
+            color: green;
+            @media (min-width: 768px){
+              color: red;
+            }
+          }
+          @media tv{
+            color: black;
+          }
+        }
+        输出为：
+        @media screen{
+          color: green;
+        }
+        @media screen and (min-width: 768px){
+          color: red;
+        }
+        @media tv{
+          color: black;
+        }
+        其余的非条件指令，如font-face或者keyframes 也会冒泡，它们的身体不变
+        #a{
+          color: blue;
+          @font-face{
+            src: some-url;
+          }
+          padding: 2px;
+        }
+        输出：
+        #a{
+          color: blue;
+        }
+        @font-face{
+          src: some-url;
+        }
+        #a{
+          padding: 2px;
+        }
+		运算: 可以对数字，颜色或者变量进行算术运算。
+				@base: 5%;
+				@filler: @base * 2;
+				@other: @base + @filler;
+				@base-color: #000;
+				.test{
+					color: #fff / 4;
+					background-color: @base-color + #654;
+					width: 50% / 2 +@filler
+				}
+				less可以理解色值和单位的之间区别：
+				@var: 1px + 5;
+				这个变量的最终输出为6px
+		函数： less内置了多种函数用于转换颜色，处理字符串，算术运算等。函数在函数手册中有详细介绍。用法如下：
+				@base: #f500f5;
+				@width: 0.5;
+				.test{
+					width: percentage(@width);
+					color: saturate(@base, 5%);
+				}
+		命名空间和访问器(namespaces&accessors): 有些时候，你想要组合你的变量或者mixin，无论是出于组织目的还是只是想实现一些封装，你可以很直观的在less中实现。
+				@color: #ff4e56
+				#bundle{
+					.button{
+						display: block;
+						background-color: @color;
+						width: 100px;
+						height: 30px;
+						border-radius: 5px;
+						&:hover{
+							background-color: @color - #222;
+						}
+					}
+					.tab{ ... }
+					.input{ ... }
+				}
+				如果你将.button这个类加入 #header button中，可以这样做：
+				#header{
+				 	color: green;
+				 	#bundle > .button
+				}
+				注：变量在某命名空间内定义声明，该变量的作用范围仅限于该空间中，外部的空间中该变量将无法不可用。因此无法像上面的语法(#namespace > .mixin-name)那样进行,(#namespace > @var)是不行的
+		作用范围(scope): scope在less中与编程语言中的非常相似，变量和mixin会先在当前规则中寻找，如果无发现，编译器会当前规则的上一级寻找，以此类推。
+				@var: red;
+				#page{
+					@var:  blue;
+					#nav{
+						color: @var;//blue
+					}
+				}
+				变量和mixin不一定要在其使用之前定义声明，下面例子同上面例子：
+				@var: red;
+				#page{
+					#nav{
+						color: @var;//blue
+					}
+					@var: blue;
+				}
+		注释：可以使用行注释或者块注释
+				/* 
+				这里是注释
+				*/
+				@var: red;
+				//这里是注释
+				@var: blue;
+		导入(importing):可以导入.less的文件，所有在该.less的文件中的变量都是可用的。
+				@import "test.less";
+				@import "main.css";
