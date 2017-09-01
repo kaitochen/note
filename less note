@@ -1,0 +1,1 @@
+安装less 可以通过npm进行安装，也可以在文件中引入less.js和less.css 推荐通过npm进行安装，下载并安装node就可以使用npm
