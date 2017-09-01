@@ -96,16 +96,23 @@ less 学习日记
         #a{
           padding: 2px;
         }
-		运算: 可以对数字，颜色或者变量进行算术运算。
+		运算: 算术运算操作符 +,-,*,/ 可以对任意数字，颜色或者变量进行运算。
+				如果可能，运算操作符会在加，减或者比较之前代入单位并且进行转换，结果的单位会等同于运算式中最左边的第一个显式单位。
+				如果不能进行转换或者无意义时，会忽略单位。可能的转换： px->cm,rad->%
+				@cvs: 5cm+10mm;//6cm
+				@cvs: 2-3cm-5mm;//1.5cm 待定
+				@cvs: 2+5px-3cm;//4px
+				
 				@base: 5%;
-				@filler: @base * 2;
-				@other: @base + @filler;
+				@filler: @base * 2;//10%
+				@other: @base + @filler;//15%
 				@base-color: #000;
 				.test{
 					color: #fff / 4;
 					background-color: @base-color + #654;
 					width: 50% / 2 +@filler
 				}
+				
 				less可以理解色值和单位的之间区别：
 				@var: 1px + 5;
 				这个变量的最终输出为6px
