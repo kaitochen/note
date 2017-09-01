@@ -102,7 +102,6 @@ less 学习日记
 				@cvs: 5cm+10mm;//6cm
 				@cvs: 2-3cm-5mm;//1.5cm 待定
 				@cvs: 2+5px-3cm;//4px
-				
 				@base: 5%;
 				@filler: @base * 2;//10%
 				@other: @base + @filler;//15%
@@ -112,7 +111,6 @@ less 学习日记
 					background-color: @base-color + #654;
 					width: 50% / 2 +@filler
 				}
-				
 				less可以理解色值和单位的之间区别：
 				@var: 1px + 5;
 				这个变量的最终输出为6px
