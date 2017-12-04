@@ -13,3 +13,47 @@ book: OO
       pattern
       high performance
       
+前端：
+Vue|-(MVVM框架)
+   |-Vue-cli(项目框架构建)
+   |-Vue-router(路由)
+   |-Vuex(option)(状态管理)
+   |-Vue-resource/axios(数据交互)
+
+   |-less(option)(css预处理)
+   |-babel(option)(es6预处理)
+   |-ejs(option)(html模板预处理)
+   
+构建工具:
+webpack/npm script
+
+后端：
+node|
+	|-express(node框架)
+	|-MySQL(数据库)
+
+
+
+haved:
+	react-native 
+	node crawler
+	vue
+	less
+	es6 part
+
+optional:
+	react all
+	vue all
+	node express
+
+continue： 
+	high performance js
+	jquery origin code
+	oop
+	es6 all
+
+
+let 不存在变量提升
+const 常量不可修改
+块级作用域
+解构赋值（可指定默认值）
