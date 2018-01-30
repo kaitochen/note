@@ -1,0 +1,4 @@
+1.盒子模型：区分标准模式和怪异模式以及浏览器之间的区别
+2.存储：cookies跟localstorage，sessionstorage
+3.缓存？
+4.css选择符优先级，最高级!important，其次是内联，然后是id，接着是class，然后是tag，伪类，属性，最后是默认
